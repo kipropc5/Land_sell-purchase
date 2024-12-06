@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4" id="logoutContainer">
+    <h1 id="logoutHeader">Logout</h1>
+    <p id="logoutMessage">You have successfully logged out.</p>
+    <p id="logoutOptions"><a href="{% url 'login' %}" id="loginLink">Log in again</a> or <a href="{% url 'index' %}" id="homepageLink">return to the homepage</a>.</p>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4" id="landFormContainer">
+    <h1 id="formHeader">{% if form.instance.pk %}Update Land{% else %}Create Land{% endif %}</h1>
+    <form method="post" enctype="multipart/form-data" id="landForm">
+        {% csrf_token %}
+        <div class="form-group" id="locationGroup">
+            <label for="location" id="locationLabel">Location:</label>
+            <input type="text" name="location" id="location" class="form-control" value="{{ form.location.value|default_if_none:'' }}" required>
+        </div>
+        <div class="form-group" id="photoGroup">
+            <label for="photo" id="photoLabel">Photo:</label>
+            <input type="file" name="photo" id="photo" class="form-control" required>
+        </div>
+        <div class="form-group" id="sizeInAcresGroup">
+            <label for="size_in_acres" id="sizeInAcresLabel">Size in Acres:</label>
+            <input type="number" name="size_in_acres" id="size_in_acres" class="form-control" step="0.01" value="{{ form.size_in_acres.value|default_if_none:'' }}" required>
+        </div>
+        <div class="form-group" id="priceGroup">
+            <label for="price" id="priceLabel">Price (KSH):</label>
+            <input type="number" name="price" id="price" class="form-control" step="0.01" value="{{ form.price.value|default_if_none:'' }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitButton">{% if form.instance.pk %}Update{% else %}Create{% endif %} Land</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,352 @@
+*{
+    margin: 0;
+}
+
+#mainNavbar {
+    background-color:olive;
+}
+
+#viewLandsLink {
+    color: #007bff;
+}
+
+#listNewLandLink {
+    color: #28a745;
+}
+
+#logoutForm {
+    margin-left: auto;
+    padding-top: 6px;
+    color: #dc3545;
+}
+
+#registerLink {
+    color: #ffc107;
+}
+
+#loginLink {
+    color: #dc3545;
+    padding-top: 17px;
+}
+
+#mainContainer {
+    padding-top: 20px;
+
+
+}
+body {
+    background-image: url("../images/51893589645_4a7672146b_o.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+/*end of base*/
+@keyframes  Welcome{
+    from{background-color: #a78e28}
+    to{background-color: #28a745}
+
+}
+#welcomeJumbotron {
+    background-color: #a78e28;
+    border-radius: 25px;
+    animation-name: Welcome;
+    animation-duration: 6s;
+    animation-delay: 3s;
+    animation-iteration-count: infinite;
+
+
+
+}
+
+#welcomeTitle {
+    color: orange;
+    font-weight: bold;
+}
+
+#welcomeSubtitle {
+    color: darkblue;
+
+}
+
+#welcomeButtons a {
+    margin-right: 10px;
+}
+
+#viewLandsButton {
+    background-color: #007bff;
+
+}
+
+
+
+#listNewLandButton {
+    background-color: #6c757d;
+
+}
+
+#registerButton {
+    background-color: #ffc107;
+    border-radius: 20px;
+
+}
+
+
+#loginButton {
+    background-color: #dc3545;
+    border-radius: 20px;
+}
+/*end of index*/
+#deleteContainer {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+#deleteTitle {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+#deletePrompt {
+    color: #6c757d;
+}
+
+#landDetails {
+    color: #343a40;
+}
+
+#deleteForm {
+    margin-top: 20px;
+}
+
+#confirmDeleteButton {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#cancelButton {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+/*end of land delete*/
+#landFormContainer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#formHeader {
+    color: #007bff;
+    font-weight: bold;
+}
+
+#locationGroup,
+#photoGroup,
+#sizeInAcresGroup,
+#priceGroup {
+    margin-bottom: 15px;
+}
+
+#locationLabel,
+#photoLabel,
+#sizeInAcresLabel,
+#priceLabel {
+    font-weight: bold;
+}
+
+#submitButton {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+/*end of land form*/
+#availableLandsContainer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#availableLandsHeader {
+    color: #007bff;
+    font-weight: bold;
+}
+
+#landsRow {
+    margin-top: 20px;
+}
+
+#noLandsMessage {
+    color: #dc3545;
+}
+
+[id^="landCardContainer_"] {
+    margin-bottom: 20px;
+}
+
+[id^="landCard_"] {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+[id^="landPhoto_"] {
+    height: 200px;
+    object-fit: cover;
+}
+
+[id^="landCardBody_"] {
+    padding: 15px;
+}
+
+[id^="landTitle_"] {
+    color: #343a40;
+}
+
+[id^="landText_"] {
+    color: #6c757d;
+}
+
+[id^="editButton_"] {
+    margin-right: 10px;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+[id^="deleteButton_"] {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+[id^="buyButton_"] {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+/*end of land list*/
+#loginContainer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#loginHeader {
+    color: #007bff;
+    font-weight: bold;
+}
+
+#formErrors {
+    margin-top: 15px;
+}
+
+#errorList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#errorList li {
+    color: #dc3545;
+}
+
+#usernameGroup,
+#passwordGroup {
+    margin-bottom: 15px;
+}
+
+#usernameLabel,
+#passwordLabel {
+    font-weight: bold;
+}
+
+#loginButton {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+#forgotPasswordLink a,
+#registerLink a {
+    color: #007bff;
+}
+
+#forgotPasswordLink {
+    margin-top: 10px;
+}
+
+#registerLink {
+    margin-top: 10px;
+}
+/*end of login*/
+#logoutContainer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#logoutHeader {
+    color: #007bff;
+    font-weight: bold;
+}
+
+#logoutMessage {
+    color: #6c757d;
+}
+
+#logoutOptions {
+    margin-top: 15px;
+}
+
+#loginLink,
+#homepageLink {
+    color: #007bff;
+}
+
+#loginLink:hover,
+#homepageLink:hover {
+    text-decoration: underline;
+}
+/*end of logout*/
+#paymentContainer {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#paymentHeader {
+    color: #007bff;
+    font-weight: bold;
+}
+
+#paymentForm {
+    margin-top: 20px;
+}
+
+#formFields {
+    margin-bottom: 15px;
+}
+
+#submitPaymentButton {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+/*end of pay*/
+/*.footer_section p{*/
+/*    color: #ffffff;*/
+/*  margin: 0;*/
+/*  text-align: center;*/
+/*    font-weight: 500;*/
+/*    -webkit-box-pack: center;*/
+/*      -ms-flex-pack: center;*/
+/*          justify-content: center;*/
+/*  padding: 20px;*/
+/*  background-color: #1d1d1d;*/
+
+/*}*/
+.footer {
+    position: relative;
+    bottom: -250px;
+    width: 100%;
+    text-align: center ;
+    font-weight: 500;
+    background-color: black;
+    color: white;
+
+}

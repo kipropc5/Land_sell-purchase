@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4" id="availableLandsContainer">
+    <h1 id="availableLandsHeader">Available Lands</h1>
+    <div class="row" id="landsRow">
+        {% for land in lands %}
+            <div class="col-md-4" id="landCardContainer_{{ forloop.counter }}">
+                <div class="card mb-4" id="landCard_{{ forloop.counter }}">
+                    <img src="{{ land.photo.url }}" class="card-img-top" alt="Land Photo" id="landPhoto_{{ forloop.counter }}">
+                    <div class="card-body" id="landCardBody_{{ forloop.counter }}">
+                        <h5 class="card-title" id="landTitle_{{ forloop.counter }}">{{ land.location }}</h5>
+                        <p class="card-text" id="landText_{{ forloop.counter }}">{{ land.size_in_acres }} acres - KSH{{ land.price }}</p>
+                        {% if user.is_authenticated and user.user_type == 'seller' and user == land.seller %}
+                            <a href="{% url 'land-update' land.pk %}" class="btn btn-primary" id="editButton_{{ forloop.counter }}">Edit</a>
+                            <a href="{% url 'land-delete' land.pk %}" class="btn btn-danger" id="deleteButton_{{ forloop.counter }}">Delete</a>
+                        {% elif user.is_authenticated and user.user_type == 'buyer' %}
+                            <form method="post" action="{% url 'pay' %}" style="display:inline;" id="buyForm_{{ forloop.counter }}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-success" id="buyButton_{{ forloop.counter }}">Buy Land</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p id="noLandsMessage">No land listings available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

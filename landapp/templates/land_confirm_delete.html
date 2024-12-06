@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4" id="deleteContainer">
+    <h1 id="deleteTitle">Delete Land Listing</h1>
+    <p id="deletePrompt">Are you sure you want to delete this land listing?</p>
+    <p id="landDetails"><strong>{{ object.location }}</strong> - {{ object.size_in_acres }} acres - ${{ object.price }}</p>
+
+    <form method="post" id="deleteForm">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Confirm Delete" id="confirmDeleteButton">
+        <a href="{% url 'land-list' %}" class="btn btn-secondary" id="cancelButton">Cancel</a>
+    </form>
+</div>
+{% endblock %}

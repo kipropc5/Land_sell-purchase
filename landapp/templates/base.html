@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Land App</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styling.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light " id="mainNavbar">
+    <a class="navbar-brand" href="{% url 'index' %}">Land App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'land-list' %}" id="viewLandsLink">View Lands</a>
+                </li>
+                {% if user.user_type == 'seller' %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'land-create' %}" id="listNewLandLink">List New Land</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <form method="post" action="{% url 'logout' %}" id="logoutForm">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link nav-link" style="padding: 0;">Logout</button>
+                    </form>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}" id="registerLink">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}" id="loginLink">Login</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4" id="mainContainer">
+    {% block content %}
+    {% endblock %}
+
+</div>
+<!-- Footer section -->
+<footer class="footer mt-auto py-3 ">
+    <div class="container">
+        <span class="text-muted">Copyright &copy; 2024 All Rights Reserved By .
+        <a href="#">Collins</a>
+        </span>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

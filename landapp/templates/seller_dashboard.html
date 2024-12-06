@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Seller Dashboard</h1>
+    <h2>Your Land Listings</h2>
+    <div class="row">
+        {% for land in lands %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{{ land.photo.url }}" class="card-img-top" alt="Land Photo">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ land.location }}</h5>
+                        <p class="card-text">{{ land.size_in_acres }} acres - KSH{{ land.price }}</p>
+                        <a href="{% url 'land-update' land.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'land-delete' land.pk %}" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No land listings available.</p>
+        {% endfor %}
+    </div>
+    <h2>List New Land</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">List Land</button>
+    </form>
+</div>
+{% endblock %}

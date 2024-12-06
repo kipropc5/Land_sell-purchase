@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="jumbotron" id="welcomeJumbotron">
+    <h1 class="display-4" id="welcomeTitle">Welcome to the Land App</h1>
+    <p class="lead" id="welcomeSubtitle">Easily buy and sell land. Connect with buyers and sellers, and explore available properties.</p>
+    <hr class="my-4">
+    <p id="welcomeButtons">
+        {% if user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="{% url 'land-list' %}" role="button" id="viewLandsButton">View Lands</a>
+            {% if user.user_type == 'seller' %}
+                <a class="btn btn-secondary btn-lg" href="{% url 'land-create' %}" role="button" id="listNewLandButton">List New Land</a>
+            {% endif %}
+        {% else %}
+            <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button" id="registerButton">Register</a>
+            <a class="btn btn-secondary btn-lg" href="{% url 'login' %}" role="button" id="loginButton">Login</a>
+        {% endif %}
+    </p>
+</div>
+{% endblock %}
